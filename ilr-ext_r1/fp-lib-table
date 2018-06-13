@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name footprint)(type KiCad)(uri /home/mcmaster/doc/ext/ir_led_ring/footprint)(options "")(descr ""))
+)
