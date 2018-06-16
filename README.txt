@@ -2,6 +2,33 @@ IR LED ring (ILR) illuminator
 Designed to be used with Mitutoyo M Plan IR objectives
 
 
+Design summary:
+-ilr-ext: externally powered LED array, all in series
+    ie use lab bunch supply
+    r1
+        scrapped due to error in inner diameter
+    r2
+        Shrunk ID
+        Add IR warning
+        Clean up mounting holes
+    TODO: add fuse
+    TODO: possibly increase LED hole to help set angle
+-solder_jig
+    Places LEDs at 45 degree angle for above assembly
+-ilr-lm317: LM317 design with 12V in regulating to fixed 100 mA
+    Does not work / don't use
+-ilr-r: 12V in resistor limiting to around 100 mA
+    Does not work / don't use
+
+
+Max LED power
+150 mW dissipation
+100 mW current => 8 mW optical
+1.4 Vdrop max => 1.4 * 0.1 = 140 - 8 mW = 132 mW
+1.25 Vdrop typ => 1.25 * 0.1 = 125 - 8 mW = 117 mW
+Safe to run at 100 mW continuously, assuming reasonable 25C air flow
+
+
 Mityotyo M Plan APo objective measurements
 Note: https://www.edmundoptics.com/microscopy/infinity-corrected-objectives/Mitutoyo-NIR-NUV-and-UV-Infinity-Corrected-Objectives/
 Note: https://www.edmundoptics.com/microscopy/infinity-corrected-objectives/Mitutoyo-Infinity-Corrected-Long-Working-Distance-Objectives/
@@ -28,11 +55,4 @@ Middle of PCB cut to 33 mm (touch up with file if necessary)
 What would focal point be at?
 distance = 25 * sin(45) = 17.7 mm
 limits use to the 20x objective
-
-
-Designs 
--ilr-ext: externally powered using benchtop supply in current mode, 100 mA max
-    Production design, use this
--ilr-lm317: LM317 current regulated, 12V in, always max brightness
--ilr-r: resistance regulated, 12V in for max brightness
 
